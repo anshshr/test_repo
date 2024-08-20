@@ -58,7 +58,7 @@ class ChatPage extends StatelessWidget {
           ListView.builder(
             itemCount: 40,
             itemBuilder: (context, index) {
-              return (index % 2 == 0) ? MyChatText() : FriendChatText();
+              return (index % 2 == 0) ? FriendChatText() : MyChatText();
             },
           ),
           Align(

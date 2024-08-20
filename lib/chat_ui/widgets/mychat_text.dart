@@ -6,24 +6,33 @@ class MyChatText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft, 
-      child: Row(
-        mainAxisSize: MainAxisSize
-            .min, // Ensures the Row takes only as much space as needed
-        children: [
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: Colors.amber,
-          ),
-          SizedBox(width: 10), // Add space between the avatar and text
-          Flexible(
-            child: Text(
-              'Hello',
-              style: TextStyle(color: Theme.of(context).appColors.onPrimary,fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize),
+    return Padding(
+      padding: const EdgeInsets.only(left: 10.0, top: 10),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Row(
+          mainAxisSize: MainAxisSize
+              .min, // Ensures the Row takes only as much space as needed
+          children: [
+            CircleAvatar(
+              radius: 20,
+              backgroundColor: Colors.amber,
             ),
-          ),
-        ],
+            SizedBox(width: 10), // Add space between the avatar and text
+            Flexible(
+              child: Container(
+                color: Theme.of(context).appColors.primary,
+                child: Text(
+                  'Hello',
+                  style: TextStyle(
+                      color: Theme.of(context).appColors.onPrimary,
+                      fontSize:
+                          Theme.of(context).textTheme.bodyLarge!.fontSize),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
