@@ -36,6 +36,13 @@ class LikesCall extends StatelessWidget {
             },
             child: Text('people liked')),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0, // Set the desired index here
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'honme'),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'honme'),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'honme'),
+          ]),
       body: Center(
         child: Text('Likes'),
       ),

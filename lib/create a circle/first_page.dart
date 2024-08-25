@@ -10,7 +10,7 @@ import 'package:wagwan_work_testing/themes/custom_buttons/large_sized_button.dar
 
 class FirstPage extends StatelessWidget {
   final PageController pageController;
-   FirstPage({super.key, required this.pageController});
+  FirstPage({super.key, required this.pageController});
 
   String Titletext1 = 'Do you want to Create a Channel';
 
@@ -22,12 +22,18 @@ class FirstPage extends StatelessWidget {
   String Descriptiontext2 =
       'Make multiple Small Circles under one Channel. You can manage and create multiple groups for people to converse and share based on topics and interests.';
 
+    bool ispublic = false;
+    bool isprivate = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).appColors.surface,
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios)),
         title: Text(
           'Create',
           style: Theme.of(context)
@@ -74,7 +80,7 @@ class FirstPage extends StatelessWidget {
                           context
                               .read<PublicPrivateBloc>()
                               .add(isPublicSelected());
-                        } 
+                        }
                       },
                       text: 'Public',
                     ),
@@ -93,7 +99,7 @@ class FirstPage extends StatelessWidget {
                             context
                                 .read<PublicPrivateBloc>()
                                 .add(isPrivateSelected());
-                          } 
+                          }
                         },
                         text: 'Private'),
                   ],

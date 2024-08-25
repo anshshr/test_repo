@@ -24,9 +24,10 @@ class SecondPage extends StatelessWidget {
 
   bool obscurePassword = true;
 
+  List tags = [];
+
   @override
   Widget build(BuildContext context) {
-
     Future<void> pick_colour(BuildContext context) async {
       await showModalBottomSheet(
         context: context,
@@ -54,13 +55,18 @@ class SecondPage extends StatelessWidget {
                 ),
                 BlocBuilder<ColorPickerBloc, ColorPickerState>(
                   builder: (context, state) {
+                    Color currentColor = state is ColorUpdated
+                        ? state.updatedColor
+                        : Theme.of(context).appColors.tertiary;
                     return ColorPicker(
                       pickerAreaHeightPercent: 0.5,
                       colorPickerWidth: 300,
                       paletteType: PaletteType.hsv,
-                      pickerColor: Theme.of(context).appColors.tertiary,
+                      pickerColor: currentColor,
                       onColorChanged: (value) {
-                        context.read<ColorPickerBloc>().add(ColorSelected(value));
+                        context
+                            .read<ColorPickerBloc>()
+                            .add(ColorSelected(value));
                       },
                       displayThumbColor: true,
                     );
@@ -81,6 +87,7 @@ class SecondPage extends StatelessWidget {
       );
     }
 
+    print('complte ui is building');
     return Scaffold(
       backgroundColor: Theme.of(context).appColors.surface,
       appBar: AppBar(
@@ -207,7 +214,34 @@ class SecondPage extends StatelessWidget {
                     ),
                     controller: tagsController,
                     obscureText: false,
-                    keyboardType: TextInputType.text),
+                    keyboardType: TextInputType.text,
+                    onSubmitted: (value) {
+                      tags.add(value);
+                      tagsController.clear();
+                      print('starting to build');
+
+                      (context as Element).markNeedsBuild();
+                    }),
+                Container(
+                  height: 60,
+                  child: Flexible(
+                    fit: FlexFit.loose,
+                    child: ListView.builder(
+                      physics: const ClampingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: tags.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                          child: Chip(label: tags[index]),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
                 SizedBox(
                   height: 40,
                 ),
@@ -215,7 +249,9 @@ class SecondPage extends StatelessWidget {
                     alignment: Alignment.center,
                     child: BlocBuilder<ColorPickerBloc, ColorPickerState>(
                       builder: (context, state) {
-                        Color currentColor = state is ColorUpdated ? (state).updatedColor : Theme.of(context).appColors.tertiary;
+                        Color currentColor = state is ColorUpdated
+                            ? (state).updatedColor
+                            : Theme.of(context).appColors.tertiary;
                         return LargeSizedButton(
                             onPressed: () {
                               pick_colour(context);

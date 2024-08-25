@@ -27,6 +27,7 @@ class Replies extends StatelessWidget {
         leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
       ),
       body: Stack(
+        
         children: [
           ListView(
             children: [
@@ -151,7 +152,7 @@ class Replies extends StatelessWidget {
               ),
               // Replies of all the to the post
               ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics:const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 10,
                 itemBuilder: (context, index) {

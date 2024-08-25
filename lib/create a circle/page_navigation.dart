@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wagwan_work_testing/create%20a%20circle/blocs/bloc/public_private_bloc.dart';
 import 'package:wagwan_work_testing/create%20a%20circle/blocs/color_picker/color_picker_bloc.dart';
 import 'package:wagwan_work_testing/create%20a%20circle/blocs/switchbloc/switch_bloc.dart';
+import 'package:wagwan_work_testing/create%20a%20circle/blocs/tags_bloc/tags_bloc.dart';
 import 'package:wagwan_work_testing/create%20a%20circle/first_page.dart';
 import 'package:wagwan_work_testing/create%20a%20circle/foutrh_page.dart';
 import 'package:wagwan_work_testing/create%20a%20circle/second_page.dart';
@@ -18,12 +19,17 @@ void main() {
       BlocProvider(
         create: (context) => PublicPrivateBloc(),
       ),
-      BlocProvider(create: (context) => ColorPickerBloc(),),
+      BlocProvider(
+        create: (context) => ColorPickerBloc(),
+      ),
+      // BlocProvider(
+      //   create: (context) => TagsBloc(),
+      // )
     ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       home: PageNavigation(),
-      theme: AppTheme.light,
+      theme: AppTheme.dark,
     ),
   ));
 }

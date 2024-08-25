@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:wagwan_work_testing/replies%20section/pages/image_size.dart';
 import 'package:wagwan_work_testing/themes/app_theme.dart';
 
+
 class InitalPage extends StatefulWidget {
   final PageController pageController;
   const InitalPage({super.key, required this.pageController});
@@ -96,7 +97,6 @@ class _InitalPageState extends State<InitalPage> {
                               filter:
                                   ImageFilter.blur(sigmaX: 0.1, sigmaY: 0.1),
                               child: Container(
-                                
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,7 +146,6 @@ class _InitalPageState extends State<InitalPage> {
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 0.1, sigmaY: 0.1),
                       child: Container(
-                        
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -155,7 +154,8 @@ class _InitalPageState extends State<InitalPage> {
                                     .textTheme
                                     .bodyLarge
                                     ?.copyWith(
-                                  color: Theme.of(context).appColors.onSecondary,
+                                  color:
+                                      Theme.of(context).appColors.onSecondary,
                                   shadows: [shadow],
                                 )),
                             SizedBox(

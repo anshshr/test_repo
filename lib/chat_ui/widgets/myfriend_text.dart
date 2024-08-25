@@ -11,20 +11,36 @@ class FriendChatText extends StatelessWidget {
       child: Align(
         alignment: Alignment.centerRight,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              child: Container(
-                color: Theme.of(context).appColors.primary,
-                child: Text(
-                  'Fine, how are you?',
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).appColors.surface,
+                    border: Border.all(
+                        color: Theme.of(context).appColors.secondary),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                        'Fine, how are you? and how is everythi goig just went to the gym and the rest is fine and we can now move on',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: Theme.of(context).appColors.onPrimary,
+                            )),
+                  ),
                 ),
               ),
             ),
             SizedBox(width: 10),
             CircleAvatar(
               radius: 20,
-              backgroundColor: Colors.blue,
+              backgroundImage: NetworkImage(
+                  'https://cdn-icons-png.flaticon.com/512/3577/3577402.png'),
+              backgroundColor: Colors.amber,
             ),
           ],
         ),

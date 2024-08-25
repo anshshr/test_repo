@@ -11,26 +11,37 @@ class MyChatText extends StatelessWidget {
       child: Align(
         alignment: Alignment.centerLeft,
         child: Row(
-          mainAxisSize: MainAxisSize
-              .min, // Ensures the Row takes only as much space as needed
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             CircleAvatar(
               radius: 20,
-              backgroundColor: Colors.amber,
+              backgroundImage: NetworkImage(
+                  'https://cdn-icons-png.freepik.com/512/3656/3656988.png'),
+              backgroundColor: Colors.green,
             ),
-            SizedBox(width: 10), // Add space between the avatar and text
+            SizedBox(width: 10),
             Flexible(
-              child: Container(
-                color: Theme.of(context).appColors.primary,
-                child: Text(
-                  'Hello',
-                  style: TextStyle(
-                      color: Theme.of(context).appColors.onPrimary,
-                      fontSize:
-                          Theme.of(context).textTheme.bodyLarge!.fontSize),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).appColors.surface,
+                    border: Border.all(
+                        color: Theme.of(context).appColors.secondary),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                        'Hello, how are you? I am fine, thank you. How are you doing today? i am doing great. How about you? so far so good. I am glad to hear that now lets go to the park and have some fun. I am in, lets go.',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: Theme.of(context).appColors.onPrimary,
+                            )),
+                  ),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
