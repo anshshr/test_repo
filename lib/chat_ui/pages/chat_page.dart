@@ -116,6 +116,8 @@ class ChatPage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: TextField(
+                          style: TextStyle(
+                              color: Theme.of(context).appColors.onPrimary),
                           decoration: const InputDecoration(
                               hintText: 'Send a message',
                               border: InputBorder.none,
