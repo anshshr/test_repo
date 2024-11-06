@@ -45,6 +45,7 @@ dependencies:
   equatable: ^2.0.5
   flutter_colorpicker: ^1.1.0
   intl: ^0.19.0
+  link_preview_generator: ^1.2.0
 
 dev_dependencies:
   flutter_test:

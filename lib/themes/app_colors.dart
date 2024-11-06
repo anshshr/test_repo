@@ -3,9 +3,9 @@ import 'package:wagwan_work_testing/themes/app_colors_extension.dart';
 
 final darkAppColors = AppColorsExtension(
   primary: const Color(0xff0C0C0C),
-  onPrimary: const Color(0xffEAEAEA),
+  onPrimary: const Color(0xffdfdfdf),
   secondary: const Color(0xff191919),
-  onSecondary: const Color(0xffF5F5F5),
+  onSecondary: const Color(0xffe4e4e4),
   onTertiary: const Color(0xffEEEEEE),
   tertiary: const Color(0xffD40000),
   error: const Color(0xffCF6679),

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:wagwan_work_testing/replies%20section/pages/inital_page.dart';
 import 'package:wagwan_work_testing/replies%20section/pages/replies.dart';
-import 'package:wagwan_work_testing/themes/text_theme.dart';
+import 'package:wagwan_work_testing/themes/app_theme.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: vertical_scroll(),
-    theme: ThemeData.dark().copyWith(textTheme: getTextTheme()),
+    darkTheme: AppTheme.dark,
+    theme: AppTheme.light,
+    themeMode: ThemeMode.dark,
   ));
 }
 
@@ -20,12 +22,12 @@ class vertical_scroll extends StatelessWidget {
     return PageView(
       controller: pagecontroller,
       scrollDirection: Axis.vertical,
-      
       children: [
         InitalPage(
           pageController: pagecontroller,
         ),
-        Replies(pageController: pagecontroller,
+        Replies(
+          pageController: pagecontroller,
         ),
       ],
     );
